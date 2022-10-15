@@ -1,0 +1,8 @@
+- Whatsapp integration
+- Filtrado por categorias
+- Push notification integration
+- NavBar #catalogo #descuento
+- button add new products
+- searchbar
+- banner de servicios de maquinas 
+- botton para el admin
