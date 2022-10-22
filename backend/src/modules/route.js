@@ -1,12 +1,13 @@
 'use strict';
 const { Router } = require('express');
-const userRoute = require('./user/userRouter');
+const adminRoute = require('./admin/adminRouter');
+const productRoute = require('./product/productRouter');
 const router = Router();
 
 const init = () => {
-    // *** register routes here *** //
-    router.use('/users', userRoute);
-    return router;
+  // router.use('/admin', adminRoute);
+  // router.use('/product', productRoute);
+  return router;
 };
 
 module.exports = {init};
