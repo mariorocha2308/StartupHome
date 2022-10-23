@@ -1,13 +1,13 @@
-import React from 'react';
-import { View } from 'react-native'
+// import React from 'react';
+// import { View } from 'react-native'
 
-const ListItems = () => {
+// const ListItems = () => {
 
-  return (  
-    <View>
+//   return (  
+//     <View>
       
-    </View>
-  );
-}
+//     </View>
+//   );
+// }
 
-export default ListItems;
+// export default ListItems;
