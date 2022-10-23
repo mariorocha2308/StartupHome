@@ -5,12 +5,14 @@ const cors = require("cors");
 const routerConfig = require('./modules/route');
 const config = require('./config/config');
 const morgan = require('morgan')
+const { connectDb } = require('./models')
 
 const init = () => {
   // *** express instance *** //
   const app = express();
   // Configuraing the standard middlewares.
   setupStandardMiddlewares(app);
+	connectDb()
   configureApiEndpoints(app);
   app.listen(config.SERVER_PORT);
   console.log(`Listening on port ${config.SERVER_PORT} in ${config.NODE_ENV} mode`);
@@ -18,16 +20,17 @@ const init = () => {
 
 const setupStandardMiddlewares = (app) => {
 
-  const whitelist = ['*']
+  // const whitelist = ['*']
 
   const configCors = {
-    origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
+		origin: '*'
+    // origin: function (origin, callback) {
+    //   if (whitelist.indexOf(origin) !== -1) {
+    //     callback(null, true)
+    //   } else {
+    //     callback(new Error('Not allowed by CORS'))
+    //   }
+    // }
   }
 
   // parse requests of content-type - application/json

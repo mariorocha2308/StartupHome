@@ -1,12 +1,12 @@
 'use strict';
 const { Router } = require('express');
-const adminRoute = require('./admin/adminRouter');
-const productRoute = require('./product/productRouter');
+const adminRouter = require('./admin/adminRouter');
+const productRouter = require('./product/productRouter');
 const router = Router();
 
 const init = () => {
-  // router.use('/admin', adminRoute);
-  // router.use('/product', productRoute);
+  router.use('/admin', adminRouter);
+  router.use('/product', productRouter);
   return router;
 };
 
