@@ -3,6 +3,9 @@ dotenv.config();
 module.exports = {
   SERVER_PORT: process.env.PORT || '',
   NODE_ENV: process.env.NODE_ENV || '',
-  DB_NAME: process.env.DB_NAME || '',
-  DB_ATLAS_URI: process.env.DB_ATLAS_URI || '',
+  MONGONAME: process.env.MONGONAME || '',
+  MONGOHOST: process.env.MONGOHOST || '',
+  MONGOPASSWORD: process.env.MONGOPASSWORD || '',
+  MONGOPORT: process.env.MONGOPORT || '',
+  MONGOUSER: process.env.MONGOUSER || '',
 };
