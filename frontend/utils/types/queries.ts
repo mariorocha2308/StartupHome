@@ -4,8 +4,21 @@ export type TAuth = {
 }
 
 export type Tproduct = {
+	_id: number
 	title: string,
 	description: string,
 	price: number,
 	discount: number
+}
+
+export type TproductSend = {
+	title: string,
+	description: string,
+	price: number,
+	discount: number
+}
+
+export type TResponse = {
+	message?: string,
+	error?: string
 }

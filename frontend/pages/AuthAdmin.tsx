@@ -6,10 +6,11 @@ import { RootStackParamList } from '../utils/types/navigation';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell } from 'react-native-confirmation-code-field';
 import { postSessionTokenQuery } from '../utils/apiQueries/admin'
 import { useMutation } from '@tanstack/react-query'
+import { useAuthAdmin } from '../zustand/authCreator';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { sx } from '../styles/AuthAdminStyle'
-import { useAuthAdmin } from '../zustand/authCreator';
+import Btn from '../styles/ButtonStyle'
 
 const AuthAdmin = () => {
 
@@ -80,8 +81,8 @@ const AuthAdmin = () => {
           </Text>
         )}
       />
-			<Pressable style={sx.btn} onPress={() => mutate(value)}>
-					<Text style={sx.btnText}>AUTENTICAR</Text>
+			<Pressable style={Btn.btn} onPress={() => mutate(value)}>
+					<Text style={Btn.btnText}>AUTENTICAR</Text>
 			</Pressable>
 		</View>
 	);
