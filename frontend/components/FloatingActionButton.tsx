@@ -11,7 +11,7 @@ const FloatingActionButton = () => {
 
 	const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
 
-	return (  
+	return (
 		<Pressable style={sx.fab} onPress={() => navigation.navigate('Create')}>
 			<Ionicons name={'md-add'} size={38} color='white' style={sx.fabIcon}/>
 		</Pressable>

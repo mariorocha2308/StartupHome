@@ -10,9 +10,9 @@ import Snackbar from 'rn-animated-snackbar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AgreeLogOut from '../components/Modal/AgreeLogOut';
 import FloatingActionButton from '../components/FloatingActionButton';
+import ListItems from '../components/ListItems';
 
 import { sx } from '../styles/HomeStyle'
-import ListItems from '../components/ListItems';
 
 const Home = () => {
 
@@ -20,7 +20,7 @@ const Home = () => {
 	const [tostVisible, setToastVisible] = useState(false)
 	const { auth, logOut } = useAuthAdmin()
 	const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
-	const { data: products } = useQuery(['products'], getProductsQuery)
+	const { data: products, refetch } = useQuery(['products'], getProductsQuery)
 
 	const handleCheckAuth = () => {
 		if (auth === false) {
@@ -42,6 +42,7 @@ const Home = () => {
 
 	const onRefresh = useCallback(() => {
     setRefreshing(true);
+		refetch()
 		setTimeout(() => {
 			setRefreshing(false)
 		}, 2000)
@@ -49,22 +50,22 @@ const Home = () => {
 
 	return ( 
 		<View style={sx.root}>
-			{!products?.length ?
-				<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-					<Text style={{fontFamily: 'Poppins_600SemiBold', fontSize: 20, color: '#585858'}}>No hay Productos</Text>
-				</View> :
-				<ScrollView
-					style={{flex: 1, padding: 10}}
-					refreshControl={
-						<RefreshControl
-							refreshing={refreshing}
-							onRefresh={onRefresh}
-						/>
-					}>
-					{products.map(product => (
-						<ListItems title={product.title} description={product.description} price={product.price} discount={product.discount} key={product._id}/>))}
-				</ScrollView>
-			}
+			<ScrollView
+				style={{flex: 1, padding: 10, }}
+				refreshControl={
+					<RefreshControl
+						refreshing={refreshing}
+						onRefresh={onRefresh}
+					/>
+				}>
+					{!products?.length ?
+						<View style={{alignItems: 'center'}}>
+							<Text style={{fontFamily: 'Poppins_600SemiBold', fontSize: 20, color: '#585858'}}>No hay Productos</Text>
+						</View> :
+						products.map(product => (
+							<ListItems id={product._id} title={product.title} description={product.description} price={product.price} discount={product.discount} key={product._id}/>))
+					}
+			</ScrollView>
 			{auth && (
 				<FloatingActionButton/>
 			)}

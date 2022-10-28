@@ -3,28 +3,20 @@ import { StyleSheet } from "react-native";
 const sx = StyleSheet.create({
   item: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		padding: 12,
-		marginBottom: 5
+		paddingVertical: 7,
+		height: 70,
+		alignItems: 'center'
 	},
-	// itemInfo: {
-	// 	flexDirection: 'row',
-	// 	alignItems: 'center'
-	// },
-	// containBadge: {
-	// 	marginRight: 20
-	// },
-	// badge: {
-	// 	width: 15, 
-	// 	height: 15,
-	// 	borderRadius: 100,
-	// 	backgroundColor: '#04B431'
-	// },
+	itemInfo: {
+		height: '100%',
+		width: '60%',
+		alignItems: 'flex-start',
+		justifyContent: 'center'
+	},
 	itemTitle: {
 		fontFamily: 'Poppins_600SemiBold',
 		fontSize: 22,
-		textTransform: 'capitalize'
+		textTransform: 'capitalize',
 	},
 	itemDescription: {
 		fontFamily: 'Poppins_500Medium',
@@ -32,7 +24,10 @@ const sx = StyleSheet.create({
 		fontSize: 15
 	},
 	containPrice: {
-		alignItems: 'flex-end'
+		height: '100%',
+		alignItems: 'flex-end',
+		width: '40%',
+		justifyContent: 'center'
 	},
 	itemPrice: {
 		fontFamily: 'Poppins_600SemiBold',
@@ -42,7 +37,7 @@ const sx = StyleSheet.create({
 		fontFamily: 'Poppins_600SemiBold',
 		color: '#FA5882',
 		textDecorationLine: 'line-through',
-		fontSize: 15
+		fontSize: 15,
 	}
 });
 
