@@ -62,8 +62,6 @@ const updateProduct = async (req, res) => {
   }
 }
 
-// TODO: TESTEO DE ESTA FUNCION
-
 const deleteProduct = async (req, res) => {
 	const { id } = req.body
 	const token = req.headers.authorization.split(' ')[1]
@@ -87,15 +85,15 @@ const deleteProduct = async (req, res) => {
 
 // TODO: TESTEO DE ESTA FUNCION
 
-const findProducts = async (req, res) => {
-  const { title } = req.body
+const searchProducts = async (req, res) => {
+  const { find } = req.query
 	const token = req.headers.authorization.split(' ')[1]
 
   try {
 		const isPermission = await authPermission(token)
 
 		if (isPermission) {
-			const products = await models.Product.find({ title: title })
+			const products = await models.Product.find({ title: find })
 
 			if (products) {
 				res.json(products)
@@ -111,10 +109,28 @@ const findProducts = async (req, res) => {
   }
 }
 
+const findProductById = async (req, res) => {
+  const { id } = req.body
+
+  try {
+		const products = await models.Product.find({ _id: id })
+
+		if (products) {
+			res.json(products)
+		} else {
+			res.send({error: "El producto no existe"})
+		}
+
+  } catch (error) {
+    return res.send({ error: "Error in findProductById" })
+  }
+}
+
 module.exports = {
   getProducts,
 	createProduct,
 	updateProduct,
 	deleteProduct,
-	findProducts
+	searchProducts,
+	findProductById
 };

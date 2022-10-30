@@ -1,9 +1,10 @@
 'use strict';
 const router = require('express').Router();
-const { getProducts, createProduct, updateProduct, deleteProduct, findProducts } = require("./productService");
+const { getProducts, createProduct, updateProduct, deleteProduct, searchProducts, findProductById } = require("./productService");
 
 router.get('/all', getProducts);
-router.get('/search', findProducts);
+router.get('/search', searchProducts);
+router.get('/find', findProductById);
 router.post('/create', createProduct);
 router.put('/update', updateProduct);
 router.delete('/delete', deleteProduct);
