@@ -1,8 +1,8 @@
 - Whatsapp integration
 - Filtrado por categorias
 - Push notification integration
-- NavBar #catalogo #descuento
-- button add new products
 - searchbar
-- landing de servicios de maquinas 
-- botton para el admin
+- landing de servicios de maquinas
+- si es nuevo o no
+- ponerle un stock
+- ponerle imagenes para mostrar

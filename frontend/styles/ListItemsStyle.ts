@@ -35,7 +35,7 @@ const sx = StyleSheet.create({
 	},
 	itemDiscount: {
 		fontFamily: 'Poppins_600SemiBold',
-		color: '#FA5882',
+		color: '#FF0040',
 		textDecorationLine: 'line-through',
 		fontSize: 15,
 	}

@@ -13,6 +13,7 @@ import FloatingActionButton from '../components/FloatingActionButton';
 import ListItems from '../components/ListItems';
 
 import { sx } from '../styles/HomeStyle'
+import Loading from '../components/Loading';
 
 const Home = () => {
 
@@ -20,7 +21,7 @@ const Home = () => {
 	const [tostVisible, setToastVisible] = useState(false)
 	const { auth, logOut } = useAuthAdmin()
 	const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
-	const { data: products, refetch } = useQuery(['products'], getProductsQuery)
+	const { data: products, refetch, isLoading } = useQuery(['products'], getProductsQuery)
 
 	const handleCheckAuth = () => {
 		if (auth === false) {
@@ -29,7 +30,7 @@ const Home = () => {
 			AgreeLogOut(logOut)
 		}
 	}
-	
+
 	useEffect(() => {
 		navigation.setOptions({
       headerRight: () => (
@@ -48,6 +49,10 @@ const Home = () => {
 		}, 2000)
   }, []);
 
+	if (isLoading) {
+		return <Loading/>
+	}
+
 	return ( 
 		<View style={sx.root}>
 			<ScrollView
@@ -59,8 +64,9 @@ const Home = () => {
 					/>
 				}>
 					{!products?.length ?
-						<View style={{alignItems: 'center'}}>
-							<Text style={{fontFamily: 'Poppins_600SemiBold', fontSize: 20, color: '#585858'}}>No hay Productos</Text>
+						<View style={{alignItems: 'center', marginTop: 60}}>
+							<Ionicons name='md-refresh-circle' size={50} color='#585858'/>
+							<Text style={{fontFamily: 'Poppins_600SemiBold', fontSize: 18, color: '#585858', marginTop: 10}}>No hay Productos</Text>
 						</View> :
 						products.map(product => (
 							<ListItems id={product._id} title={product.title} description={product.description} price={product.price} discount={product.discount} key={product._id}/>))

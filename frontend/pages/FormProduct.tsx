@@ -1,8 +1,7 @@
-import React from 'react';
 import { View, Text, Pressable } from 'react-native'
 import { useForm } from "react-hook-form";
 import { useNavigation } from '@react-navigation/native';
-import { QueryClient, useMutation } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useAuthAdmin } from '../zustand/authCreator';
 import { TproductSend } from '../utils/types/queries';
 import { postProductQuery } from '../utils/apiQueries/product';
@@ -12,12 +11,12 @@ import InputController from '../components/InputController';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import Btn from '../styles/ButtonStyle'
+import Input from '../styles/InputControllerStyle'
 
 const FormProduct = () => {
 
 	const { permissionToken } = useAuthAdmin()
 	const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
-	const queryClient = new QueryClient()
 	const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       title: '',
@@ -38,26 +37,26 @@ const FormProduct = () => {
 	};
 
 	return ( 
-		<View>
+		<View style={{marginTop: 20}}>
 			<InputController control={control} name='title' placeholder='Producto'>
-				<Ionicons name='md-text'/>
+				<Ionicons name='md-document' size={18} color="rgb(120, 120, 120)" style={{marginRight: 8}}/>
 			</InputController>
-      {errors.title && <Text>Nombre del producto requerido</Text>}
+      {errors.title && <Text style={Input.warning} >Nombre del producto requerido</Text>}
 
 			<InputController control={control} name='description' placeholder='Description' isMulti={true}>
-				<Ionicons name='md-receipt' size={20} color="rgb(120, 120, 120)"/>
+				<Ionicons name='md-reader' size={18} color="rgb(120, 120, 120)" style={{marginRight: 8}}/>
 			</InputController>
-      {errors.description && <Text>Descripcion requerida</Text>}
+      {errors.description && <Text style={Input.warning} >Descripcion requerida</Text>}
 
 			<InputController control={control} name='price' placeholder='Precio' numeric={true}>
-				<Ionicons name='md-pricetag' size={20} color="rgb(120, 120, 120)"/>
+				<Ionicons name='md-cash' size={18} color="rgb(120, 120, 120)" style={{marginRight: 8}}/>
 			</InputController>
-      {errors.price && <Text>Precio requerido</Text>}
+      {errors.price && <Text style={Input.warning} >Precio requerido</Text>}
 
 			<InputController control={control} name='discount' placeholder='Descuento' numeric={true}>
-				<Ionicons name='md-text' size={20} color="rgb(120, 120, 120)"/>
+				<Ionicons name='md-pricetag' size={18} color="rgb(120, 120, 120)" style={{marginRight: 8}}/>
 			</InputController>
-      {errors.discount && <Text>Descuento requerido</Text>}
+      {errors.discount && <Text style={Input.warning} >Descuento requerido, por defecto ingrese 0</Text>}
 
 			<Pressable style={Btn.btn} onPress={handleSubmit(onSubmit)}>
 					<Text style={Btn.btnText}>CREAR</Text>

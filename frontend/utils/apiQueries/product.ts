@@ -30,7 +30,7 @@ const postProductQuery = (params: Iparams) => {
   })
 }
 
-const deleteProductQuery = (token: string, id: number) => {
+const deleteProductQuery = (token: string, id: string) => {
   return new Promise((resolve, reject) => {
     fetch(`https://startup-api.up.railway.app/api/v1/product/delete`, {
 			method: 'DELETE',
@@ -46,9 +46,19 @@ const deleteProductQuery = (token: string, id: number) => {
   })
 }
 
+const findProductQuery = (id: string): Promise<Tproduct[]> => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://startup-api.up.railway.app/api/v1/product/find/${id}`)
+    .then(response => response.json())
+    .then(result => resolve(result))
+    .catch(() => reject('Failed to find product by id'))
+  })
+}
+
 
 export {
   getProductsQuery,
 	postProductQuery,
-	deleteProductQuery
+	deleteProductQuery,
+	findProductQuery
 }
