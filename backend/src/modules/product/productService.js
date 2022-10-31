@@ -110,10 +110,10 @@ const searchProducts = async (req, res) => {
 }
 
 const findProductById = async (req, res) => {
-  const { id } = req.body
+  const { idProduct } = req.params
 
   try {
-		const products = await models.Product.find({ _id: id })
+		const products = await models.Product.find({ _id: idProduct })
 
 		if (products) {
 			res.json(products)
