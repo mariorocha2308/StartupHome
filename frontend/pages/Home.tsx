@@ -6,14 +6,15 @@ import { RootStackParamList } from '../utils/types/navigation'
 import { useQuery } from '@tanstack/react-query';
 import { getProductsQuery } from '../utils/apiQueries/product';
 import { useAuthAdmin } from '../zustand/authCreator';
-import Snackbar from 'rn-animated-snackbar';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Loading from '../components/Loading';
 import AgreeLogOut from '../components/Modal/AgreeLogOut';
+import LandingCard from '../components/LandingCard'
 import FloatingActionButton from '../components/FloatingActionButton';
+import Snackbar from 'rn-animated-snackbar';
 import ListItems from '../components/ListItems';
 
 import { sx } from '../styles/HomeStyle'
-import Loading from '../components/Loading';
 
 const Home = () => {
 
@@ -55,6 +56,7 @@ const Home = () => {
 
 	return ( 
 		<View style={sx.root}>
+			<LandingCard/>
 			<ScrollView
 				style={{flex: 1, padding: 10, }}
 				refreshControl={
