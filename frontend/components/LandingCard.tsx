@@ -15,7 +15,7 @@ const LandingCard = () => {
     setCopy(true)
 		setTimeout(() => {
 			setCopy(false)
-		}, 2000);
+		}, 1000);
   };
 
 	const handleToAddress = () => {
@@ -25,15 +25,16 @@ const LandingCard = () => {
 	return (  
 		<View style={sx.root}>
 			<View style={sx.logo}>
-				<Ionicons name='logo-whatsapp' color='white' size={30}/>
+				<Ionicons name='logo-whatsapp' color='#81F781' size={35}/>
 				<Text style={sx.landingName}>Mario Rocha Vega</Text>
 			</View>
 			<Text style={sx.presentation}>"Taller de reparacion de maquinaria industrial, cepillos, routers y equipo pesado."</Text>
-				<TouchableOpacity onLongPress={handleClipBoard} style={sx.btnPhone}>
-					<Text style={isCopy ? sx.copyTitle : sx.landingPhone}>+52 746 113 9115</Text>
-				</TouchableOpacity>
-			<TouchableOpacity style={sx.btnMaps} onPress={handleToAddress}>
-				<Text style={sx.btnMapsTitle}>VER DIRECCIÓN</Text>
+
+			<TouchableOpacity onPress={handleClipBoard} style={sx.btnLanding}>
+				<Text style={isCopy ? sx.copyTitle : sx.btnTitle}>COPIAR WHATSAPP</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={sx.btnLanding} onPress={handleToAddress}>
+				<Text style={sx.btnTitle}>VER DIRECCIÓN</Text>
 			</TouchableOpacity>
 		</View>
 	);

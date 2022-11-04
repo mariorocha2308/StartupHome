@@ -56,15 +56,15 @@ const Home = () => {
 
 	return ( 
 		<View style={sx.root}>
-			<LandingCard/>
 			<ScrollView
 				style={{flex: 1, padding: 10, }}
 				refreshControl={
 					<RefreshControl
-						refreshing={refreshing}
-						onRefresh={onRefresh}
+					refreshing={refreshing}
+					onRefresh={onRefresh}
 					/>
 				}>
+					<LandingCard/>
 					{!products?.length ?
 						<View style={{alignItems: 'center', marginTop: 60}}>
 							<Ionicons name='md-refresh-circle' size={50} color='#585858'/>

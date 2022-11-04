@@ -4,11 +4,9 @@ const sx = StyleSheet.create({
   root: {
 		backgroundColor: 'black',
 		borderRadius: 10,
-		marginHorizontal: 8,
-		marginVertical: 15,
+		marginBottom: 15,
 		padding: 20,
-    height: 200,
-		elevation: 20,
+    height: 200
   },
 	logo: {
 		flexDirection: 'row',
@@ -22,31 +20,19 @@ const sx = StyleSheet.create({
 	},
 	presentation: {
 		color: 'white',
-		paddingVertical: 7,
+		paddingVertical: 13,
 		fontFamily: 'Poppins_500Medium',
 		alignSelf: 'center'
 	},
-	btnPhone: {
-		alignSelf: 'center',
-		marginVertical: 5
-	},
-	landingPhone: {
-		fontFamily: 'Poppins_700Bold',
-		color: 'white',
-		textAlign: 'center',
-		fontSize: 23
-	},
 	copyTitle: {
-		color: '#58ACFA',
-		fontFamily: 'Poppins_700Bold',
-		textAlign: 'center',
-		fontSize: 23
+		color: '#01DF3A',
+		fontFamily: 'Poppins_600SemiBold',
 	},
-	btnMaps: {
+	btnLanding: {
 		padding: 4,
 		alignSelf: 'flex-end'
 	},
-	btnMapsTitle: {
+	btnTitle: {
 		color: '#58ACFA',
 		fontFamily: 'Poppins_600SemiBold'
 	}
