@@ -3,10 +3,10 @@ import { StyleSheet } from "react-native";
 const sx = StyleSheet.create({
   root: {
 		backgroundColor: 'black',
-		borderRadius: 10,
+		borderRadius: 7,
 		marginBottom: 15,
 		padding: 20,
-    height: 200
+    height: 160
   },
 	logo: {
 		flexDirection: 'row',
@@ -27,6 +27,10 @@ const sx = StyleSheet.create({
 	copyTitle: {
 		color: '#01DF3A',
 		fontFamily: 'Poppins_600SemiBold',
+	},
+	btns: {
+		flexDirection: 'row',
+		justifyContent: 'space-around'
 	},
 	btnLanding: {
 		padding: 4,

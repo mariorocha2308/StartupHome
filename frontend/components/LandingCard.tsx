@@ -30,12 +30,14 @@ const LandingCard = () => {
 			</View>
 			<Text style={sx.presentation}>"Taller de reparacion de maquinaria industrial, cepillos, routers y equipo pesado."</Text>
 
-			<TouchableOpacity onPress={handleClipBoard} style={sx.btnLanding}>
-				<Text style={isCopy ? sx.copyTitle : sx.btnTitle}>COPIAR WHATSAPP</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={sx.btnLanding} onPress={handleToAddress}>
-				<Text style={sx.btnTitle}>VER DIRECCIÓN</Text>
-			</TouchableOpacity>
+			<View style={sx.btns}>
+				<TouchableOpacity onPress={handleClipBoard} style={sx.btnLanding}>
+					<Text style={isCopy ? sx.copyTitle : sx.btnTitle}>COPIAR WHATSAPP</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={sx.btnLanding} onPress={handleToAddress}>
+					<Text style={sx.btnTitle}>VER DIRECCIÓN</Text>
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 }
